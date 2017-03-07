@@ -8,7 +8,9 @@
 #do.restand: whether do restand in the analysis
 #family: model to use, gaussian, poisson
 #estimation.method: Bayesian or MLE
-DRAgeneLevel<-function(eset,data.type=c('microarray','NGS'),do.normalization=FALSE,filterLowCount=TRUE,filterBy='control',count.cutoff=4,nitt=15000,burnin=5000,...){
+DRAgeneLevel<-function(eset,data.type=c('microarray','NGS'), do.normalization=FALSE, filterLowCount=TRUE, 
+                       filterBy='control', count.cutoff=4, nitt=15000, burnin=5000,  
+                       normalization_type='log',...){
 
   if(missing(data.type)){
     data.type<-ifelse(all(exprs(eset)>0) & is.integer(exprs(eset)),'NGS','microarray')
