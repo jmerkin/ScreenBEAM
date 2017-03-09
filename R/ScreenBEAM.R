@@ -90,35 +90,23 @@ ScreenBEAM<-function(input.file,control.samples,case.samples,data.type=c('microa
 
   ####read data
   eset<-generateEset(
-    input.file=input.file
-    ,
-    control.samples=control.samples
-    ,
-    case.samples=case.samples
-    ,
+    input.file=input.file ,
+    control.samples=control.samples ,
+    case.samples=case.samples ,
     control.groupname=control.groupname,
     case.groupname=case.groupname,
     gene.columnId=gene.columnId
   )
 
-
   DR<-DRAgeneLevel(
-    eset=eset
-    ,
-    data.type=data.type
-    ,
-    do.normalization=do.normalization
-    ,
-    filterLowCount=filterLowCount
-    ,
-    filterBy = filterBy
-    ,
-    count.cutoff=count.cutoff
-    ,
-    nitt=nitt
-    ,
-    burnin=burnin
-    ,
+    eset=eset ,
+    data.type=data.type ,
+    do.normalization=do.normalization ,
+    filterLowCount=filterLowCount ,
+    filterBy = filterBy ,
+    count.cutoff=count.cutoff ,
+    nitt=nitt ,
+    burnin=burnin ,
     ...
   )
 
