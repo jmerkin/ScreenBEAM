@@ -6,28 +6,20 @@ library(ScreenBEAM)
 r<-ScreenBEAM(
 
   ###input format
-  input.file=system.file("extdata", "NGS.example.tsv", package = "ScreenBEAM")
-  ,
-  control.samples=c('T0_A','T0_B','T0_C')
-  ,
-  case.samples=c('T16_A','T16_B','T16_C')
-  ,
-  control.groupname='T0'
-  ,
-  case.groupname='T16'
-  ,
+  input.file=system.file("extdata", "NGS.example.tsv", package = "ScreenBEAM") ,
+  #control.samples=c('T0_A','T0_B','T0_C') ,
+  #case.samples=c('T16_A','T16_B','T16_C') ,
+  control.samples=c('T0_A'),
+  case.samples=c('T16_A'),
+  control.groupname='T0' ,
+  case.groupname='T16' ,
 
   ###data pre-processing
-  data.type='NGS'
-  ,
-  do.normalization=TRUE
-  ,
-  filterLowCount=TRUE
-  ,
-  filterBy = 'control'
-  ,
-  count.cutoff=4
-  ,
+  data.type='NGS' ,
+  do.normalization=TRUE ,
+  filterLowCount=TRUE ,
+  filterBy = 'control' ,
+  count.cutoff=4 ,
 
   ###Bayesian computing
   nitt=1500,#number of MCMC iterations, use small number here for testing, please use larger number in real data, 15000 is default
