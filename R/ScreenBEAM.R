@@ -98,7 +98,7 @@ ScreenBEAM<-function(input.file,control.samples,case.samples,data.type=c('microa
     gene.columnId=gene.columnId
   )
 
-  DR<-DRAgeneLevel(
+  iDR <- DRAgeneLevel(
     eset=eset ,
     data.type=data.type ,
     do.normalization=do.normalization ,
@@ -110,5 +110,23 @@ ScreenBEAM<-function(input.file,control.samples,case.samples,data.type=c('microa
     ...
   )
 
-  DR
+  gene_priors = calculate_ppi_prior(iDR)
+
+  DR <- DRAgeneLevel(
+    eset=eset ,
+    data.type=data.type ,
+    do.normalization=do.normalization ,
+    gene_priors=gene_priors,
+    filterLowCount=filterLowCount ,
+    filterBy = filterBy ,
+    count.cutoff=count.cutoff ,
+    nitt=nitt ,
+    burnin=burnin ,
+    ...
+  )
+  dr = inner_join(DR, iDR, by=c('gene'='gene') ) 
+  colnames(dr) = gsub('.x$', '.post', colnames(dr))
+  colnames(dr) = gsub('.y$', '.naive', colnames(dr))
+
+  dr
 }
